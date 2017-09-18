@@ -22,24 +22,24 @@ stack_top:
 # The kernel entry point.
 .section .text
 
-global read_port
-global write_port
-global load_idt
+.global _read_port
+.global _write_port
+.global _load_idt
 
-extern keyboard_handler_main
+.extern keyboard_handler_main
 
-read_port:
+_read_port:
 	mov		edx, [esp + 4]
 	in		al, dx
 	ret
 
-write_port:
+_write_port:
 	mov		edx, [esp + 4]
 	mov		al, [esp + 4 + 4]
 	out		dx, al
 	ret
 
-load_idt:
+_load_idt:
 	mov		edx, [esp + 4]
 	lidt	[edx]
 	sti 				; turn on interrupts
