@@ -1,4 +1,4 @@
-#include "../kernel/tty.h"
+#include <kernel/tty.h>
 #include "interrupt_def.h"
 
 #define IDT_SIZE 256
