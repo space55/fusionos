@@ -3,8 +3,8 @@
 
 #include <kernel/tty.h>
 
-#include <tasks/tasks.h>
-#include <interrupts/interrupt_handler.h>
+#include <kernel/tasks/tasks.h>
+#include <kernel/interrupts/interrupt_handler.h>
 
 void kernel_main(void) {
 	terminal_initialize();
