@@ -12,6 +12,15 @@
 .long FLAGS
 .long CHECKSUM
 
+# Reserve a stack for the initial thread.
+.section .bss
+.align 16
+stack_bottom:
+.skip 16384 # 16 KiB
+stack_top:
+
+# The kernel entry point.
+.section .text
 
 global read_port
 global write_port
@@ -36,15 +45,7 @@ load_idt:
 	sti 				; turn on interrupts
 	ret
 
-# Reserve a stack for the initial thread.
-.section .bss
-.align 16
-stack_bottom:
-.skip 16384 # 16 KiB
-stack_top:
 
-# The kernel entry point.
-.section .text
 .global _start
 .type _start, @function
 _start:
