@@ -8,8 +8,8 @@
 #ifndef INTERRUPT_HANDLER
 #define INTERRUPT_HANDLER
 
-void PIC_EOI(uint8_t irqnum)
-void PIC_EOI_spourious(uint8_t irqnum)
+void PIC_EOI(uint8_t irqnum);
+void PIC_EOI_spourious(uint8_t irqnum);
 void idt_init(void);
 extern char read_port(unsigned short port);
 extern void write_port(unsigned short port, unsigned char data);
